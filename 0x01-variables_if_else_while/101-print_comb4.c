@@ -38,7 +38,8 @@ int main(void)
 	}
 	digit1++;
 }
-putchar(...'\n');
+putchar('\n');
 
 return (0);
+
 }
