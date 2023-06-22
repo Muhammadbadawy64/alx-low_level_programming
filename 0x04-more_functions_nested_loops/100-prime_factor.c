@@ -49,7 +49,7 @@ void largest_prime_fector(long int num)
 	}
 	if (num > 2)
 		largest = num;
-	printf("%d\n", largest)
+	printf("%d\n", largest);
 }
 /**
  * main - Entry point
