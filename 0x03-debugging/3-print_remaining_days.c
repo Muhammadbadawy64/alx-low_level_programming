@@ -38,13 +38,3 @@ void print_remaining_days(int month, int day, int year)
 		}
 	}
 }
-int main(void)
-{
-	/**
-	 *  Entry point of the program
-	 * This function is responsible for initiating program execution
-	 * and can call other functions as needed
-	 * Add your code or function calls here
-	 */
-	return (0);
-}
