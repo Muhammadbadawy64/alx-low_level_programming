@@ -2,11 +2,10 @@
 #include <stdio.h>
 
 /**
- * isPrintableASCII - derermines if n is a printable ASCII char
+ * isPrintableASCII - determines if n is a printable ASCII char
  * @n: integer
- * Return: 1 if true, 0 of flase
-*/
-
+ * Return: 1 if true, 0 if false
+ */
 int isPrintableASCII(int n)
 {
 	return (n >= 32 && n <= 126);
@@ -18,7 +17,6 @@ int isPrintableASCII(int n)
  * @start: starting position
  * @end: ending position
  */
-
 void printHexes(char *b, int start, int end)
 {
 	int i = 0;
@@ -29,6 +27,7 @@ void printHexes(char *b, int start, int end)
 			printf("%02x", *(b + start + i));
 		else
 			printf("  ");
+
 		if (i % 2)
 			printf(" ");
 		i++;
@@ -36,13 +35,12 @@ void printHexes(char *b, int start, int end)
 }
 
 /**
- * printASCII - print ascii values for srting b.
- * formatted to replace nonprintable chars with '.'
+ * printASCII - print ASCII values for string b.
+ * Formatted to replace nonprintable chars with '.'
  * @b: string to print
  * @start: starting position
  * @end: ending position
-*/
-
+ */
 void printASCII(char *b, int start, int end)
 {
 	int ch, i = 0;
@@ -51,17 +49,18 @@ void printASCII(char *b, int start, int end)
 	{
 		ch = *(b + i + start);
 		if (!isPrintableASCII(ch))
-		{
+			printf(".");
+		else
 			printf("%c", ch);
-			i++;
-		}
+		i++;
 	}
+}
+
 /**
  * print_buffer - prints a buffer
  * @b: string
  * @size: size of buffer
-*/
-
+ */
 void print_buffer(char *b, int size)
 {
 	int start, end;
@@ -73,9 +72,13 @@ void print_buffer(char *b, int size)
 			end = (size - start < 10) ? size - start : 10;
 			printf("%08x: ", start);
 			printHexes(b, start, end);
+			printf(" ");
+			printASCII(b, start, end);
 			printf("\n");
 		}
 	}
 	else
+	{
 		printf("\n");
+	}
 }
