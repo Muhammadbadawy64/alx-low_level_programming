@@ -1,20 +1,7 @@
 #include "main.h"
 
-/**
- * last_index - returns the last index of a string {counts the null char}
- * @s: pointer to the string
- * Return: integer representing the last index
- */
-int last_index(char *s)
-{
-	int n = 0;
-
-	if (*s > '\0')
-		n += last_index(s + 1) + 1;
-
-	return (n);
-}
-
+int last_index(char *s);
+int check(char *s, int start, int end, int mod);
 /**
  * is_palindrome - check if a string is a palindrome
  * @s: string to check
@@ -26,7 +13,6 @@ int is_palindrome(char *s)
 
 	return (check(s, 0, end - 1, end % 2));
 }
-
 /**
  * check - checker for the palindrome
  * @s: string to check
@@ -43,4 +29,18 @@ int check(char *s, int start, int end, int mod)
 		return (0);
 	else
 		return (check(s, start + 1, end - 1, mod));
+}
+/**
+ * last_index - returns the last index of a string {counts the null char}
+ * @s: pointer to the string
+ * Return: integer representing the last index
+ */
+int last_index(char *s)
+{
+	int n = 0;
+
+	if (*s > '\0')
+		n += last_index(s + 1) + 1;
+
+	return (n);
 }
