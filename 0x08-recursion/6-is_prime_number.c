@@ -2,12 +2,10 @@
 #include <stdio.h>
 
 /**
- * is_prime_numner - check if n is a prime number
- * @othrn: int
- * @n: int
- * Return: 0 or 1
-*/
-
+ * is_prime_number - checks if a number is a prime number
+ * @n: The number to be checked
+ * Return: 1 if the number is prime, 0 otherwise
+ */
 int check_prime(int n, int othrn);
 int is_prime_number(int n)
 {
@@ -15,12 +13,12 @@ int is_prime_number(int n)
 }
 
 /**
- * check_prime - check all number < n if they can divide it
- * @n: int
- * @othrn: int
- * Return: int
-*/
-
+ * check_prime - checks if a number
+ * is prime by dividing it with numbers less than itself
+ * @n: The number to be checked
+ * @othrn: The current number being tested for divisibility with n
+ * Return: 1 if the number is prime, 0 otherwise
+ */
 int check_prime(int n, int othrn)
 {
 	if (othrn >= n && n > 1)
