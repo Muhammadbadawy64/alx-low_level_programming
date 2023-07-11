@@ -1,11 +1,10 @@
-#include "main.h"
+#include <stdio.h>
 #include <stdlib.h>
 /**
- * _strlen - find length of a string
+ * _strlen - find the length of a string
  * @s: string
- * Return: int
-*/
-
+ * Return: length of the string
+ */
 int _strlen(char *s)
 {
 	int size = 0;
@@ -14,29 +13,28 @@ int _strlen(char *s)
 		;
 	return (size);
 }
-
 /**
- * *str_concat - concatenates two strings
- * @s1: string 1
- * @s2: string 2
- * Return: pointer
-*/
-
+ * str_concat - concatenate two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: concatenated string
+ */
 char *str_concat(char *s1, char *s2)
 {
 	int size1, size2, i;
 	char *m;
 
 	if (s1 == NULL)
-		s1 = '\0';
+		s1 = NULL;
 	if (s2 == NULL)
-		s2 = '\0';
+		s2 = NULL;
 
 	size1 = _strlen(s1);
 	size2 = _strlen(s2);
-	m = malloc((size1 + size2) + sizeof(char) + 1);
+	m = malloc((size1 + size2) + 1);
+
 	if (m == 0)
-		return (0);
+		return (NULL);
 	for (i = 0; i <= size1 + size2; i++)
 	{
 		if (i < size1)
@@ -46,4 +44,27 @@ char *str_concat(char *s1, char *s2)
 	}
 	m[i] = '\0';
 	return (m);
+}
+/**
+ * main - entry point of the program
+ * Return: 0 on success
+ */
+int main(void)
+{
+	char *result = str_concat("Hello", NULL);
+
+	if (result != NULL)
+		printf("%s\n", result);
+	free(result);
+
+	result = str_concat(NULL, "Hello");
+	if (result != NULL)
+		printf("%s\n", result);
+	free(result);
+	result = str_concat(NULL, NULL);
+	if (result != NULL)
+		printf("%s\n", result);
+	free(result);
+
+	return (0);
 }
