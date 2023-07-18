@@ -18,11 +18,13 @@ int _strlen(const char *str)
 }
 
 /**
- * _strcopy - a function that returns @dest with a copy of a string from @src
+ * _strcopy - a function that copies a string from @src to @dest
  *
  * @src: string to copy
- * @dest: copy string to here
- */
+ * @dest: destination buffer to copy the string
+ *
+ * Return: Pointer to the destination buffer @dest
+*/
 char *_strcopy(char *dest, const char *src)
 {
 	int i;
