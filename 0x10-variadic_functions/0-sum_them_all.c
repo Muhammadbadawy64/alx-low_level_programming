@@ -15,10 +15,13 @@ int sum_them_all(const unsigned int n, ...)
 
 	if (!n)
 		return (0);
-	va_start(ap, n);
+
+	va_start(ap, n); /* Initialize the va_list with
+			    n as the last named argument */
 	while (i--)
-		s += va_arg(ap, int);
-	va_end(ap);
+		s += va_arg(ap, int); /* Access the next argument of
+					 type int and add it to the sum */
+	va_end(ap); /* Clean up the va_list */
 	return (s);
 }
 
